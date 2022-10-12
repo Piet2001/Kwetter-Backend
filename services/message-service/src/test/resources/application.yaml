@@ -1,0 +1,26 @@
+application:
+  title: Activity Service
+  version: 1.0
+
+server:
+  port: 5001
+
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        format_sql=true:
+    show-sql: true
+  main:
+    allow-bean-definition-overriding: true
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  mongodb:
+    embedded:
+      version: 3.3.3
+
+
+
