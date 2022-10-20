@@ -1,5 +1,5 @@
 application:
-  title: Activity Service
+  title: Message Service
   version: 1.0
 
 server:
