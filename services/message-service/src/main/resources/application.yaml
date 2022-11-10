@@ -17,4 +17,9 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  data:
+    mongodb:
+      uri: ${CONNECTION_STRING}
+      database: ${DB_NAME_MESSAGE}
+      auto-index-creation: true
 
