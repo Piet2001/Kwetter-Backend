@@ -38,6 +38,14 @@ jobs:
         restore-keys: ${{ runner.os}}-m2-
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+
+    - name: Make envfile
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          COMPOSE_PROJECT_NAME: "kwetter"
+          CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
+          DB_NAME_USER: ${{ secrets.DB_NAME_USER }}
+          DB_NAME_MESSAGE: ${{ secrets.DB_NAME_MESSAGE }}
     
     - name: Build and run docker compose stack
       run: docker compose up -d
