@@ -1,4 +1,4 @@
-package com.kwetter.messageservice.API.Controller;
+package com.kwetter.messageservice.Controllers;
 
 
 import com.kwetter.messageservice.Domain.Models.Message;
@@ -16,4 +16,6 @@ public class MessageController {
     public Message getMessage() {
         return new Message("1","Testname","Dit is een test bericht");
     }
+
+
 }

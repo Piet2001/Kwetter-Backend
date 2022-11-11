@@ -1,4 +1,4 @@
-package com.kwetter.userservice.API.Controller;
+package com.kwetter.userservice.Controllers;
 
 import com.kwetter.userservice.Domain.Dto.UserDto;
 import com.kwetter.userservice.Domain.Models.User;

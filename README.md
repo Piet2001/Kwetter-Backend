@@ -9,8 +9,17 @@ De volgende API's zijn beschikbaar in de applicatie
 #### User-controller
 
 | Path      | Method | Description                           |
-| --------- | :----- | ------------------------------------- |
-| "/"       | GET    | Krjig info over de standaard gebuiker |
-| "/new"    | POST   | Maak een nieuwe gebruiker             |
-| "/update" | POST   | Update een gebruiker                  |
+| --------- | :----: | ------------------------------------- |
+| "/"       |  GET   | Krijg info over de standaard gebuiker |
+| "/new"    |  POST  | Maak een nieuwe gebruiker             |
+| "/update" |  POST  | Update een gebruiker                  |
 | "/{id}"   | DELETE | Verwijder een gebruiker               |
+
+### Message-service
+
+#### Message-controller
+
+| Path | Method | Description                      |
+| ---- | :----: | -------------------------------- |
+| "/"  |  GET   | Krijg het standaard test bericht |
+
