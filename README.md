@@ -19,7 +19,9 @@ De volgende API's zijn beschikbaar in de applicatie
 
 #### Message-controller
 
-| Path | Method | Description                      |
-| ---- | :----: | -------------------------------- |
-| "/"  |  GET   | Krijg het standaard test bericht |
-
+| Path      | Method | Description                      |
+| --------- | :----: | -------------------------------- |
+| "/"       |  GET   | Krijg het standaard test bericht |
+| "/new"    |  POST  | Maak een nieuw bericht           |
+| "/update" |  POST  | Update een bericht               |
+| "/{id}"   | DELETE | Verwijder een bericht            |

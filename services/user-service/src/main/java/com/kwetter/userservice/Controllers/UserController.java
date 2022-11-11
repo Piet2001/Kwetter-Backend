@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 @Api(tags = "User Controller")
 @RestController
 @CrossOrigin(origins = "*")
@@ -42,9 +41,8 @@ public class UserController {
         try {
             User user = service.updateUser(dto);
             return new ResponseEntity<>(user, HttpStatus.CREATED);
-        }
-        catch (Exception e) {
-            return new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -56,6 +54,5 @@ public class UserController {
         }
         return HttpStatus.BAD_REQUEST;
     }
-
 
 }
