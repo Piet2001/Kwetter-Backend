@@ -21,6 +21,10 @@ spring:
   mongodb:
     embedded:
       version: 3.3.3
-
+  data:
+    mongodb:
+      database: messages
+      port: 27017
+      host: localhost
 
 
