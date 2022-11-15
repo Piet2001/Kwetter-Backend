@@ -1,5 +1,6 @@
 package com.kwetter.userservice.Controllers;
 
+import com.kwetter.userservice.Domain.Dto.ChangeUsernameDto;
 import com.kwetter.userservice.Domain.Dto.UserDto;
 import com.kwetter.userservice.Domain.Models.User;
 import com.kwetter.userservice.Domain.Service.UserService;
@@ -36,10 +37,10 @@ public class UserController {
     }
 
     @ApiOperation("Update User")
-    @PostMapping("/update")
-    public ResponseEntity<Object> updateUser(@RequestBody UserDto dto) {
+    @PostMapping("/changeUsername")
+    public ResponseEntity<Object> updateUser(@RequestBody ChangeUsernameDto dto) {
         try {
-            User user = service.updateUser(dto);
+            User user = service.changeUserName(dto);
             return new ResponseEntity<>(user, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -54,5 +55,4 @@ public class UserController {
         }
         return HttpStatus.BAD_REQUEST;
     }
-
 }

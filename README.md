@@ -12,7 +12,7 @@ De volgende API's zijn beschikbaar in de applicatie
 | --------- | :----: | ------------------------------------- |
 | "/"       |  GET   | Krijg info over de standaard gebuiker |
 | "/new"    |  POST  | Maak een nieuwe gebruiker             |
-| "/update" |  POST  | Update een gebruiker                  |
+| "/changeUsername" |  POST  | Update een gebruiker                  |
 | "/{id}"   | DELETE | Verwijder een gebruiker               |
 
 ### Message-service
