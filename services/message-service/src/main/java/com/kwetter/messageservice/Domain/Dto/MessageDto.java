@@ -12,6 +12,7 @@ import lombok.Setter;
 public class MessageDto {
 
     private String id;
+    private String userId;
     private String username;
     private String message;
 
