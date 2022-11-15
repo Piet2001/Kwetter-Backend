@@ -5,6 +5,7 @@ application:
 server:
   port: 5001
 
+
 spring:
   jpa:
     properties:
@@ -13,11 +14,17 @@ spring:
     show-sql: true
   main:
     allow-bean-definition-overriding: true
+
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  mongodb:
+    embedded:
+      version: 3.3.3
   data:
     mongodb:
       database: users
       port: 27017
       host: localhost
+
+
