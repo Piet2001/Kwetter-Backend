@@ -1,6 +1,5 @@
 package com.kwetter.messageservice.Domain.Dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,12 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-public class MessageDto {
+public class ChangeUsernameDto {
 
     private String id;
-    private String userId;
-    private String username;
-    private String message;
-
+    private String name;
 }

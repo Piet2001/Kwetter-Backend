@@ -22,7 +22,7 @@ public class MessageController {
     @ApiOperation(value = "Get Message")
     @GetMapping(value = "/")
     public Message getMessage() {
-        return new Message("1", "Testname", "Dit is een test bericht");
+        return new Message("1","usid0", "Testname", "Dit is een test bericht");
     }
 
     @ApiOperation("Create Message")

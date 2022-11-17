@@ -21,6 +21,7 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Type(type= "uuid-char")
     private String id;
+    private String userId;
     private String username;
     private String message;
 

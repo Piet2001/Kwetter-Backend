@@ -14,6 +14,7 @@ public class MessageDtoTest {
     @Test
     public void MessageDtoNotNull() {
         MessageDto dto = new MessageDto();
+        dto.setUserId("usud2");
         dto.setMessage("test");
         dto.setUsername("Test");
 
