@@ -1,11 +1,13 @@
 package com.kwetter.messageservice.Domain.Service;
 
+import com.kwetter.messageservice.Domain.Dto.ChangeUsernameDto;
 import com.kwetter.messageservice.Domain.Dto.MessageDto;
 import com.kwetter.messageservice.Domain.Models.Message;
 import com.kwetter.messageservice.Repository.MessageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,6 +19,7 @@ public class MessageService {
     public Message addMessage(MessageDto dto) {
         Message newmessage = Message.builder()
                 .message(dto.getMessage())
+                .userId(dto.getUserId())
                 .username(dto.getUsername())
                 .build();
         newmessage = repo.save(newmessage);
@@ -38,12 +41,24 @@ public class MessageService {
         }
     }
 
-    public boolean deleteMessage(String id){
+    public boolean deleteMessage(String id) {
         Optional<Message> message = repo.findById(id);
-        if(message.isPresent()){
+        if (message.isPresent()) {
             repo.delete(message.get());
             return true;
         }
         return false;
+    }
+
+    public void updateUserName(ChangeUsernameDto dto) {
+        List<Message> messages = repo.findAll();;
+
+        System.out.println(messages);
+
+        for (Message message : messages) {
+            message.setUsername(dto.getName());
+        }
+
+        repo.saveAll(messages);
     }
 }
