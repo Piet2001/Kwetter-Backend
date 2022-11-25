@@ -26,5 +26,13 @@ spring:
       database: users
       port: 27017
       host: localhost
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://jwk-set-uri.com #random url for testing
+          issuer-uri: https://issuer-uri.com #random url for testing
+          audiences: ajuel629-gs82-999a-o5n30djrl2p0 #random id for testing
+
 
 
