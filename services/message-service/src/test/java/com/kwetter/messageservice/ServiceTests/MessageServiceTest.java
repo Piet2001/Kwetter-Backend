@@ -20,11 +20,48 @@ public class MessageServiceTest {
     @Test
     public void createShouldSave() {
         MessageDto dto = new MessageDto();
+        dto.setUserId("usid1");
         dto.setUsername("Tester");
         dto.setMessage("Test message");
 
         Message message = service.addMessage(dto);
 
         assertNotNull(message);
+    }
+
+    @Test
+    public void addMessageReturnsCorrectUserid() {
+        MessageDto dto = new MessageDto();
+        dto.setUserId("usid1");
+        dto.setUsername("Tester");
+        dto.setMessage("Test message");
+
+        Message message = service.addMessage(dto);
+
+        assert(message.getUserId() == "usid1");
+    }
+
+    @Test
+    public void addMessageReturnsCorrectUserName() {
+        MessageDto dto = new MessageDto();
+        dto.setUserId("usid1");
+        dto.setUsername("Tester");
+        dto.setMessage("Test message");
+
+        Message message = service.addMessage(dto);
+
+        assert(message.getUsername() == "Tester");
+    }
+
+    @Test
+    public void addMessageReturnsCorrectMessage() {
+        MessageDto dto = new MessageDto();
+        dto.setUserId("usid1");
+        dto.setUsername("Tester");
+        dto.setMessage("Test message");
+
+        Message message = service.addMessage(dto);
+
+        assert(message.getMessage() == "Test message");
     }
 }
