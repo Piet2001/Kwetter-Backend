@@ -17,7 +17,7 @@ import javax.persistence.GenerationType;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Type(type= "uuid-char")
+    @Type(type = "uuid-char")
     private String id;
     private String name;
     private String email;

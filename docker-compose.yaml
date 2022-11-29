@@ -12,6 +12,8 @@ services:
       - local-dev
     environment:
       spring_profiles_active: dev
+    env_file:
+      - .env
 
   gateway-dapr:
     image: "daprio/daprd:edge"
