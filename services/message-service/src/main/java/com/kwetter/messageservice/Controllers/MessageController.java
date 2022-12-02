@@ -6,14 +6,21 @@ import com.kwetter.messageservice.Domain.Models.Message;
 import com.kwetter.messageservice.Domain.Service.MessageService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang3.reflect.FieldUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @Api(tags = "Message Controller")
 @RestController
 @CrossOrigin(origins = "*")
+@PreAuthorize("hasAuthority('SCOPE_Message.All')")
 public class MessageController {
 
     @Autowired
@@ -27,7 +34,11 @@ public class MessageController {
 
     @ApiOperation("Create Message")
     @PostMapping("/new")
-    public ResponseEntity<Object> createMessage(@RequestBody MessageDto dto) {
+    public ResponseEntity<Object> createMessage(@RequestBody MessageDto dto) throws IllegalAccessException {
+        Authentication authContext = SecurityContextHolder.getContext().getAuthentication();
+        Map<?, ?> claims = (Map<?, ?>) FieldUtils.readField(authContext.getPrincipal(), "claims", true);
+        String userId = claims.get("oid").toString();
+        dto.setUserId(userId);
         Message message = service.addMessage(dto);
         if (message != null) {
             return new ResponseEntity<>(message, HttpStatus.CREATED);
@@ -38,7 +49,11 @@ public class MessageController {
 
     @ApiOperation("update message")
     @PostMapping("/update")
-    public ResponseEntity<Object> updateMessage(@RequestBody MessageDto dto) {
+    public ResponseEntity<Object> updateMessage(@RequestBody MessageDto dto) throws IllegalAccessException {
+        Authentication authContext = SecurityContextHolder.getContext().getAuthentication();
+        Map<?, ?> claims = (Map<?, ?>) FieldUtils.readField(authContext.getPrincipal(), "claims", true);
+        String userId = claims.get("oid").toString();
+        dto.setUserId(userId);
         try {
             Message message = service.updateMessage(dto);
             return new ResponseEntity<>(message, HttpStatus.CREATED);

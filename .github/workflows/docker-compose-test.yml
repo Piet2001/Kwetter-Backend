@@ -46,6 +46,10 @@ jobs:
         CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
         DB_NAME_USER: ${{ secrets.DB_NAME_USER }}
         DB_NAME_MESSAGE: ${{ secrets.DB_NAME_MESSAGE }}
+        JWK_SET_URI: ${{ secrets.JWK_SET_URI }}
+        ISSUER_URI: ${{ secrets.ISSUER_URI }}
+        AUDIENCE_USER_SERVICE: ${{ secrets.AUDIENCE_USER_SERVICE }}
+        AUDIENCE_MESSAGE_SERVICE: ${{ secrets.AUDIENCE_MESSAGE_SERVICE }}
     
     - name: Build and run docker compose stack
       run: docker compose up -d

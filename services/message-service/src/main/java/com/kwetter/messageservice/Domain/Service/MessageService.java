@@ -57,9 +57,6 @@ public class MessageService {
             if(message.getUserId().equals(dto.getId())) {
                 message.setUsername(dto.getName());
             }
-            else {
-                System.out.println(message);
-            }
         }
 
         repo.saveAll(messages);

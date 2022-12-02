@@ -22,4 +22,11 @@ spring:
       uri: ${CONNECTION_STRING}
       database: ${DB_NAME_MESSAGE}
       auto-index-creation: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWK_SET_URI}
+          issuer-uri: ${ISSUER_URI}
+          audiences: ${AUDIENCE_MESSAGE_SERVICE}
 

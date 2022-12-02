@@ -30,3 +30,11 @@ spring:
             - Path=/message/**
           filters:
             - RewritePath=/message/(?<segment>.*), /v1.0/invoke/message-service/method/$\{segment}
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWK_SET_URI}
+          issuer-uri: ${ISSUER_URI}
+          audiences: ${AUDIENCE_FRONTEND_SERVICE}, ${AUDIENCE_USER_SERVICE}, ${AUDIENCE_MESSAGE_SERVICE}
