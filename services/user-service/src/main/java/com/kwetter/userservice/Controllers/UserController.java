@@ -9,6 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -46,8 +47,8 @@ public class UserController {
     }
 
     @ApiOperation("Update User")
-    @PostMapping("/changeUsername")
-    public ResponseEntity<Object> updateUser(@RequestBody ChangeUsernameDto dto) {
+    @PutMapping("/changeUsername")
+    public ResponseEntity<Object> updateUser(@RequestHeader(HttpHeaders.AUTHORIZATION) String token, @RequestBody ChangeUsernameDto dto) {
         Authentication authContext = SecurityContextHolder.getContext().getAuthentication();
         try {
             User user = service.changeUserName(dto, authContext);

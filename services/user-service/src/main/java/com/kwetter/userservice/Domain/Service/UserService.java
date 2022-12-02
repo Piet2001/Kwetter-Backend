@@ -45,7 +45,12 @@ public class UserService {
         if (lookupUser.isPresent()) {
             User user = lookupUser.get();
             user.setName(dto.getName());
-            daprClient.publishEvent("pubsub", "changeUsername", dto).block();
+			
+			ChangeUsernameDto tosend = new ChangeUsernameDto();
+			tosend.setName(dto.getName());
+			tosend.setId(dto.getId());
+			DaprClient client = new DaprClientBuilder().build();
+            client.publishEvent("pubsub", "changeUsername", tosend).block();
             return repo.save(user);
         } else {
             throw new Exception("User not found");

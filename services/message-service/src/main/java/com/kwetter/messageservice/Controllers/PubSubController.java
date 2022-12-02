@@ -7,13 +7,14 @@ import io.dapr.client.domain.CloudEvent;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @Api(tags = "PubSub Message Controller")
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/pubsub")
+@PreAuthorize("hasAuthority('SCOPE_Message.All')")
 public class PubSubController {
 
     @Autowired

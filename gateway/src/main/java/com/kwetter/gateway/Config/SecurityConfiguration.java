@@ -4,4 +4,6 @@ import org.springframework.security.config.annotation.web.reactive.EnableWebFlux
 
 @EnableWebFluxSecurity
 public class SecurityConfiguration {
+
+
 }

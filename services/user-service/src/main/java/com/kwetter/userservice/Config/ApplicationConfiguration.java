@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 @Configuration
+@Profile(value = {"production", "dev"})
 public class ApplicationConfiguration {
 
     @Value("${spring.security.oauth2.resourceserver.jwt.audiences}")
@@ -66,4 +67,5 @@ public class ApplicationConfiguration {
             }
         };
     }
+
 }
