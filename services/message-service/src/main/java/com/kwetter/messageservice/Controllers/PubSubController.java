@@ -25,6 +25,7 @@ public class PubSubController {
     public Mono<Void> updatedName(@RequestBody(required = false) CloudEvent<ChangeUsernameDto> cloudEvent) {
         return Mono.fromRunnable(() -> {
             try {
+                System.out.println(cloudEvent.getData());
                 messageService.updateUserName(cloudEvent.getData());
 
             } catch (Exception e) {
