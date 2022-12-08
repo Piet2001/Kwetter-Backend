@@ -16,3 +16,15 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  data:
+    mongodb:
+      uri: ${CONNECTION_STRING}
+      database: ${DB_NAME_USER}
+      auto-index-creation: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWK_SET_URI}
+          issuer-uri: ${ISSUER_URI}
+          audiences: ${AUDIENCE_USER_SERVICE}
