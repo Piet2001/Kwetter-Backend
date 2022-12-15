@@ -1,0 +1,29 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: Build & test services
+
+on:
+  push:
+    branches: [ aks ]
+
+jobs:
+      
+  Azure-test:     
+    - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Gets K8s context
+      uses: azure/aks-set-context@4e5aec273183a197b181314721843e047123d9fa
+      with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          resource-group: ${{ secrets.RESOURCE_GROUP }}
+          cluster-name: ${{ secrets.CLUSTER_NAME }}
+      id: login
+
+    - name: Test
+      run: |
+        kubectl get nodes
+        kubectl get pods
