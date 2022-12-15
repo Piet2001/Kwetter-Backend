@@ -80,7 +80,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Run Kubescape
-        uses: otomato-gh/kubescape-action@master
+        uses: otomato-gh/kubescape-action@v0.4.3
         with:
           ksversion: 'v2.0.155' 
           # [⚠️ Required] 
