@@ -11,9 +11,9 @@ jobs:
       
   Azure-test:     
     - name: Azure Login
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      uses: azure/login@v1  
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Gets K8s context
       uses: azure/aks-set-context@4e5aec273183a197b181314721843e047123d9fa
