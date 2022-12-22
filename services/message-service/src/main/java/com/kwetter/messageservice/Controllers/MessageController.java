@@ -47,6 +47,12 @@ public class MessageController {
         }
     }
 
+    @ApiOperation("Get all messages")
+    @GetMapping("/all")
+    public ResponseEntity<Object> getAllMessages() {
+        return new ResponseEntity<>(service.getAllMessages(), HttpStatus.OK);
+    }
+
     @ApiOperation("update message")
     @PostMapping("/update")
     public ResponseEntity<Object> updateMessage(@RequestBody MessageDto dto) throws IllegalAccessException {
