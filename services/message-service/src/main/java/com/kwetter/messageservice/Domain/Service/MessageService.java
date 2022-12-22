@@ -51,14 +51,19 @@ public class MessageService {
     }
 
     public void updateUserName(ChangeUsernameDto dto) {
-        List<Message> messages = repo.findAll();;
+        List<Message> messages = repo.findAll();
+        ;
 
         for (Message message : messages) {
-            if(message.getUserId().equals(dto.getId())) {
+            if (message.getUserId().equals(dto.getId())) {
                 message.setUsername(dto.getName());
             }
         }
 
         repo.saveAll(messages);
+    }
+
+    public List<Message> getAllMessages() {
+        return repo.findAll();
     }
 }

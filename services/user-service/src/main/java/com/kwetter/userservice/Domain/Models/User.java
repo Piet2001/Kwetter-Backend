@@ -1,5 +1,6 @@
 package com.kwetter.userservice.Domain.Models;
 
+import com.bol.secure.Encrypted;
 import lombok.*;
 import org.hibernate.annotations.Type;
 import org.springframework.data.annotation.Id;
@@ -20,5 +21,6 @@ public class User {
     @Type(type = "uuid-char")
     private String id;
     private String name;
+    @Encrypted
     private String email;
 }
